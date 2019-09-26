@@ -27,15 +27,16 @@ def all_supplies_in_holidays(holiday_hash)
     puts season.to_s.capitalize + ":"
     celebration.each { |holiday, supply|
       line = "  "
-      line += holiday.to_s.split("_").collect{ |word| word.capitalize}.join(" ")
-      line += ": "
+      line << holiday.to_s.split("_").collect{ |word| word.capitalize}.join(" ")
+      line << ": "
       supply.each_with_index { |favor, index|
-        line += ", " if index > 0
-        if favor == favor.upcase
-          line += favor
-        else
-          line += favor.split(" ").collect{ |word| word.capitalize}.join(" ")
-        end
+        line << ", " if index > 0
+        # if favor == favor.upcase
+        #   line += favor
+        # else
+        #   line += favor.split(" ").collect{ |word| word.capitalize}.join(" ")
+        # end
+        line << favor
       }  
       puts line
     }  
